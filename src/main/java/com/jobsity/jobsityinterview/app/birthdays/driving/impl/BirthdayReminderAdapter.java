@@ -18,7 +18,7 @@ public class BirthdayReminderAdapter implements BirthdayReminderPort {
 
     private String createReminderMessage(BirthdayPerson personToRemember, BirthdayPerson birthdayPerson) {
         return String.format("""
-                        Dear %s,"
+                        Dear %s,
                         Today is %s %s's birthday.
                         Don't forget to send him a message !""",
                 personToRemember.getFirstName(), birthdayPerson.getFirstName(), birthdayPerson.getLastName());

@@ -26,7 +26,6 @@ public class BirthdayDatabaseAdapter implements BirthdayDatabasePort {
         try {
             return Files.readAllLines(Paths.get(databaseFile))
                     .stream()
-                    .peek(System.out::println)
                     .filter(line -> !line.startsWith("last_name"))
                     .map(line -> line.split(","))
                     .map(data -> BirthdayPerson.builder()
