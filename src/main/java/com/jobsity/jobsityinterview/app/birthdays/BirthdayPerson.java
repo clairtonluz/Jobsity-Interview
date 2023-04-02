@@ -22,8 +22,9 @@ public class BirthdayPerson {
         if (dateOfBirth.getMonth().equals(Month.FEBRUARY)
             && dateOfBirth.getDayOfMonth() == 29
             && !today.isLeapYear()
+            && today.getMonth().equals(Month.FEBRUARY)
             && today.getDayOfMonth() == 28
-            && today.getMonth().equals(Month.FEBRUARY)) {
+        ) {
             return true;
         }
 

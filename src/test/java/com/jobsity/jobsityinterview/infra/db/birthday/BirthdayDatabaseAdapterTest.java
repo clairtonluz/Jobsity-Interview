@@ -15,7 +15,7 @@ class BirthdayDatabaseAdapterTest {
 
     @BeforeEach
     void setUp() {
-        var path = Paths.get("birthdays.txt").toAbsolutePath().toString();
+        var path = Paths.get("src/test/resources/birthdays.txt").toAbsolutePath().toString();
         birthdayDatabasePort = new BirthdayDatabaseAdapter(path);
     }
 
