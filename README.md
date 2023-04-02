@@ -2,20 +2,20 @@
 
 ### How to run application
 
-#### Running with docker
+#### Running with docker (Docker required)
 
 You can edit environments in `compose.yml` if you prefer, but I put some values default to help bootstrap.
 ```
 docker compose up
 ```
 
-#### Running from code
+#### Running from code (JDK 17 required)
 
 ```
 ./gradlew bootRun
 ```
 
-#### Running from de jar file
+#### Running from de jar file (JDK 17 required)
 ```
 # build jar file
 ./gradlew assemble
