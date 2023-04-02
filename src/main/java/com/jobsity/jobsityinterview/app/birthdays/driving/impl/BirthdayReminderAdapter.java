@@ -13,6 +13,7 @@ import java.time.LocalDate;
 @RequiredArgsConstructor
 @Service
 public class BirthdayReminderAdapter implements BirthdayReminderPort {
+
     private final BirthdayDatabasePort birthdayRepository;
     private final NotificationPort notificationService;
 

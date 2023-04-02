@@ -1,8 +1,9 @@
-package com.jobsity.jobsityinterview.infra.db.birthday;
+package com.jobsity.jobsityinterview.infra.birthday.file;
 
 import com.jobsity.jobsityinterview.app.birthdays.BirthdayPerson;
 import com.jobsity.jobsityinterview.app.birthdays.driven.BirthdayDatabasePort;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Repository;
 
 import java.io.IOException;
@@ -13,11 +14,15 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Repository
-public class BirthdayDatabaseAdapter implements BirthdayDatabasePort {
+@ConditionalOnProperty(
+        value = "app.birthdays.origin",
+        havingValue = "file"
+)
+public class BirthdayFileAdapter implements BirthdayDatabasePort {
     private static final DateTimeFormatter PATTERN = DateTimeFormatter.ofPattern("yyyy/MM/dd");
     private final String databaseFile;
 
-    public BirthdayDatabaseAdapter(@Value("${app.birthdays.db.path}") String databaseFile) {
+    public BirthdayFileAdapter(@Value("${app.birthdays.db.path}") String databaseFile) {
         this.databaseFile = databaseFile;
     }
 

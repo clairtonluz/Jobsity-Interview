@@ -1,0 +1,25 @@
+{
+  "properties": [
+    {
+      "name": "app.birthdays.origin",
+      "type": "java.lang.String",
+      "description": "Description for app.birthdays.origin.",
+      "defaultValue": "sqlite"
+    }
+  ],
+  "hints": [
+    {
+      "name": "app.birthdays.origin",
+      "values": [
+        {
+          "value": "sqlite",
+          "description": "Read birthdays from birthdays.db"
+        },
+        {
+          "value": "file",
+          "description": "Read birthdays from birthdays.txt"
+        }
+      ]
+    }
+  ]
+}

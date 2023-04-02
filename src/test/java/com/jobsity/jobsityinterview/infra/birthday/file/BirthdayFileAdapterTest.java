@@ -1,4 +1,4 @@
-package com.jobsity.jobsityinterview.infra.db.birthday;
+package com.jobsity.jobsityinterview.infra.birthday.file;
 
 import org.junit.jupiter.api.Test;
 
@@ -7,14 +7,14 @@ import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class BirthdayDatabaseAdapterTest {
+class BirthdayFileAdapterTest {
 
-    private BirthdayDatabaseAdapter birthdayDatabasePort;
+    private BirthdayFileAdapter birthdayDatabasePort;
 
     @Test
     void findAll() {
         var path = Paths.get("src/test/resources/birthdays.txt").toAbsolutePath().toString();
-        birthdayDatabasePort = new BirthdayDatabaseAdapter(path);
+        birthdayDatabasePort = new BirthdayFileAdapter(path);
 
         var birthdayList = birthdayDatabasePort.findAll();
         assertNotNull(birthdayList);
@@ -30,7 +30,7 @@ class BirthdayDatabaseAdapterTest {
     @Test
     void fileNotFound() {
         var path = Paths.get("src/test/resources/birthdays-fake.txt").toAbsolutePath().toString();
-        birthdayDatabasePort = new BirthdayDatabaseAdapter(path);
+        birthdayDatabasePort = new BirthdayFileAdapter(path);
         assertThrows(RuntimeException.class, () -> birthdayDatabasePort.findAll());
     }
 }

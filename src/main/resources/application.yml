@@ -1,11 +1,21 @@
 app:
   birthdays:
+    origin: ${BIRTHDAYS_ORIGIN:sqlite}
     db:
       path: ${DB_PATH:birthdays.txt}
     scheduler:
       congratulate: ${BIRTHDAYS_CONGRATULATES_SCHEDULER_CRON:0 0 8 * * *}
       reminders: ${BIRTHDAYS_REMINDERS_SCHEDULER_CRON:0 0 8 * * *}
 spring:
+  jpa:
+    database-platform: org.hibernate.community.dialect.SQLiteDialect
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: ${SQLITE_URL:jdbc:sqlite:birthdays.db}
+    driver-class-name: org.sqlite.JDBC
+    username: ${SQLITE_USERNAME:admin}
+    password: ${SQLITE_PASSWORD:admin}
   mail:
     host: ${EMAIL_SMTP:smtp.gmail.com}
     port: ${EMAIL_PORT:587}

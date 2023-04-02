@@ -7,7 +7,10 @@ services:
       - ./birthdays.txt:/app/birthdays.txt
     environment:
       - DB_PATH=/app/birthdays.txt
-# the values bellow already exists as default value, you only need uncomment if you want to change
+#      - BIRTHDAYS_ORIGIN=sqlite # this can be sqlite or file
+#      - SQLITE_URL=jdbc:sqlite:birthdays.db
+#      - SQLITE_USERNAME=admin
+#      - SQLITE_PASSWORD=admin
 #      - EMAIL_SMTP=smtp.gmail.com
 #      - EMAIL_PORT=587
 #      - EMAIL_FROM=foobar20232@gmail.com
