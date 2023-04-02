@@ -28,13 +28,9 @@ public class BirthdayReminderAdapter implements BirthdayReminderPort {
     public void sendReminderToSomeoneElseBirthday() {
         var birthdayPersonList = birthdayRepository.findAll();
         LocalDate today = LocalDate.now();
-        var todaysBirthdays = birthdayPersonList.stream()
+        birthdayPersonList.stream()
                 .filter(birthdayPerson -> birthdayPerson.isBirthdayToday(today))
-                .toList();
-
-        if (!todaysBirthdays.isEmpty()) {
-            todaysBirthdays.forEach(birthdayPerson -> {
-                birthdayPersonList.stream()
+                .forEach(birthdayPerson -> birthdayPersonList.stream()
                         .filter(BirthdayPerson::hasEmail)
                         .filter(personToRemember -> !personToRemember.getEmail().equals(birthdayPerson.getEmail()))
                         .forEach(personToRemember -> {
@@ -42,9 +38,6 @@ public class BirthdayReminderAdapter implements BirthdayReminderPort {
                             message.setSubject("Birthday Reminder");
                             message.setBody(createReminderMessage(personToRemember, birthdayPerson));
                             notificationService.send(personToRemember.getEmail(), message);
-                        });
-
-            });
-        }
+                        }));
     }
 }
