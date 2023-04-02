@@ -1,0 +1,19 @@
+app:
+  birthdays:
+    db:
+      path: ${DB_PATH:birthdays.txt}
+    scheduler:
+      congratulate: ${BIRTHDAYS_CONGRATULATES_SCHEDULER_CRON:0 0 8 * * *}
+      reminders: ${BIRTHDAYS_REMINDERS_SCHEDULER_CRON:0 0 8 * * *}
+spring:
+  mail:
+    host: ${EMAIL_SMTP:smtp.gmail.com}
+    port: ${EMAIL_PORT:587}
+    username: ${EMAIL_USERNAME:user}
+    password: ${EMAIL_PASSWORD:pass}
+    properties:
+      mail:
+        smtp:
+          auth: ${EMAIL_AUTH:true}
+          starttls:
+            enable:  ${EMAIL_START_TLS:true}
