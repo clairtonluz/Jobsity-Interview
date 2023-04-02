@@ -5,6 +5,7 @@ services:
       - "8080:8080"
     volumes:
       - ./birthdays.txt:/app/birthdays.txt
+      - ./birthdays.db:/app/birthdays.db
     environment:
       - DB_PATH=/app/birthdays.txt
 #      - BIRTHDAYS_ORIGIN=sqlite # this can be sqlite or file
