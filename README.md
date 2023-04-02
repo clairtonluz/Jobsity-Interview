@@ -1,4 +1,6 @@
 # Jobsity Interview
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=clairtonluz_Jobsity-Interview&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=clairtonluz_Jobsity-Interview)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=clairtonluz_Jobsity-Interview&metric=coverage)](https://sonarcloud.io/summary/new_code?id=clairtonluz_Jobsity-Interview)
 
 ### How to run application
 
