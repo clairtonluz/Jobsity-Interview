@@ -41,7 +41,7 @@ public class BirthdayFileAdapter implements BirthdayDatabasePort {
                             .build())
                     .toList();
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new FileNotFoundException(e);
         }
     }
 }

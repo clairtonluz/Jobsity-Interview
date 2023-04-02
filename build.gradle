@@ -3,6 +3,7 @@ plugins {
     id 'org.springframework.boot' version '3.0.5'
     id 'io.spring.dependency-management' version '1.1.0'
     id 'jacoco'
+    id("org.sonarqube") version "4.0.0.2929"
 }
 
 group = 'com.jobsity'
@@ -49,5 +50,16 @@ jacocoTestReport {
     reports {
         xml.enabled true
         html.outputLocation = layout.buildDirectory.dir('jacocoHtml')
+    }
+}
+
+
+sonar {
+    properties {
+        property "sonar.projectKey", "clairtonluz_Jobsity-Interview"
+        property "sonar.sourceEncoding", "UTF-8"
+        property "sonar.organization", "clairtonluz"
+        property "sonar.host.url", "https://sonarcloud.io"
+        property "sonar.login", "30fbb7b8b4bba654a57d095a7d3a55eb1e7ce53d"
     }
 }
